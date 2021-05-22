@@ -20,7 +20,7 @@ Des objets peuvent être comparés :
 
 Un objet peut être instancié grâce à l'opérateur `new` :
 ```java
-Rectangle rectangle = new Rectangle(10, 2O);
+Rectangle rectangle = new Rectangle(10, 20);
 ```
 
 ### Message :
@@ -38,6 +38,9 @@ Une classe contient un **constructeur** et un **destructeur** pour respectivemen
 * le destructeur en `java` est la méthode `finalize()`.
 
 Le mot clef `this` permet d'accéder aux variables et aux méthodes de la classe actuelle.
+
+Les variables et les méthodes peuvent être définies statiques grâce au mot clef `static`.  
+Une caractéristique statique est déclarée une seule fois et est commune à toutes les instances de la classe. 
 
 ```java
 class Rectangle {
@@ -58,8 +61,8 @@ class Rectangle {
 
 ### Encapsulation :
 Définition des accès aux données (public, private, protected).  
-L'accès par défaut est définit dans le cas où aucun type d'accès n'est spécifié.  
-Utilisation de **getters** et de **setters** pour intéragir avec les états.  
+L'accès par défaut est défini dans le cas où aucun type d'accès n'est spécifié.  
+Les accesseurs (**getters** & **setters**) sont utilisés pour intéragir avec les états.
 
 ```java
 class Rectangle {
@@ -90,8 +93,8 @@ Des objets de nature différente peuvent répondre aux mêmes comportements.
 L'héritage permet à une classe de récupérer toutes les caractéristiques d'une autre classe.  
 La classe qui hérite n'a accès qu'aux états & comportements encapsulés avec les accès `public` et `protected`.
 
-La méthode `super()` permet d'appeler le constructeur de la super-classe.  
 Le mot clef `super` permet l'accès aux caractéristiques de la super-classe.
+La méthode `super()` permet d'appeler le constructeur de la super-classe.  
 
 ```java
 class Square extends Rectangle {
@@ -108,8 +111,7 @@ class Square extends Rectangle {
 ```
 
 ### Redéfinition
-Une méthode peut être redéfinit et avoir des paramètres différents.
-
+Une méthode peut être redéfinie et avoir des paramètres différents :
 ```java
 class Rectangle {
     private int width;
