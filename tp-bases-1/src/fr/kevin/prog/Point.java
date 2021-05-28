@@ -1,4 +1,4 @@
-package fr.kevin;
+package fr.kevin.prog;
 
 public class Point {
 
@@ -15,10 +15,16 @@ public class Point {
         setY(j);
     }
 
+    public String print() {
+        return "<" + getX() + "@" + getY() + ">";
+    }
+
     public int getX() { return x; }
+
     public int getY() { return y; }
 
     public void setX(int x) { this.x = x; }
+
     public void setY(int y) { this.y = y; }
 
 }

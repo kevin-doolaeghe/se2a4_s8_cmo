@@ -8,7 +8,7 @@ Kevin Doolaeghe
 
 ### Objet :
 Un objet est une entité qui contient :
-* un état (variables)
+* un état (variables d'instance)
 * un comportement (méthodes)
 * une identité
 
@@ -26,7 +26,11 @@ Rectangle rectangle = new Rectangle(10, 20);
 ### Message :
 Un objet collabore avec d'autres entités au travers de messages.  
 Un message est un échange entre deux objets.  
-Il peut s'agir du lancement du comportement d'un objet depuis un autre objet.
+Il peut s'agir du lancement du comportement d'un objet depuis un autre objet.  
+Le lookup de la méthode appelée s'effectue depuis la classe actuelle vers les super-classes.  
+Un objet appelant une méthode avec :
+* `this` commence le lookup depuis sa classe.
+* `super` commence le lookup depuis sa super-classe.
 
 ### Classe :
 La classe définit la structure de l'objet (variables et méthodes).  
@@ -127,3 +131,9 @@ class Rectangle {
     // ...
 }
 ```
+
+## 
+
+## Test Driven Development - TDD
+
+Il s'agit d'une technique de développement consistant à développer les fonctionnalités à partir des tests à effectuer.

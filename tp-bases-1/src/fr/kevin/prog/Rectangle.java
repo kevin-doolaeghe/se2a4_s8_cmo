@@ -1,4 +1,4 @@
-package fr.kevin;
+package fr.kevin.prog;
 
 public class Rectangle {
 
@@ -10,10 +10,8 @@ public class Rectangle {
     }
 
     public Rectangle(int x1, int y1, int x2, int y2) {
-        origin = new Point();
-        corner = new Point();
-        setOrigin(x1, y1);
-        setCorner(x2, y2);
+        origin = new Point(x1, y1);
+        corner = new Point(x2, y2);
     }
 
     public int width() {
@@ -36,17 +34,15 @@ public class Rectangle {
         return 2 * width() + 2 * height();
     }
 
+    public String print() {
+        return "Rectangle: (" + getOrigin().print() + " , " + getCorner().print() + ")";
+    }
+
     public Point getOrigin() { return origin; }
 
     public Point getCorner() { return corner; }
 
-    public void setOrigin(int x, int y) {
-        origin.setX(x);
-        origin.setY(y);
-    }
-    public void setCorner(int x, int y) {
-        corner.setX(x);
-        corner.setY(y);
-    }
+    public void setOrigin(Point origin) { this.origin = origin; }
 
+    public void setCorner(Point corner) { this.corner = corner; }
 }
