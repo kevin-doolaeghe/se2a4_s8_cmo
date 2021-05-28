@@ -1,5 +1,7 @@
 package fr.kevin.prog;
 
+import java.awt.*;
+
 public class Rectangle extends GeometricShape {
 
     private Point origin;
@@ -26,12 +28,19 @@ public class Rectangle extends GeometricShape {
         return Math.abs(y1-y2);
     }
 
+    @Override
     public int area() {
         return width() * height();
     }
 
+    @Override
     public int perimeter() {
         return 2 * width() + 2 * height();
+    }
+
+    @Override
+    public void drawOn(Graphics g) {
+        g.drawRect(getOrigin().getX(), getOrigin().getY(), width(), height());
     }
 
     public String print() {

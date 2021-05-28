@@ -1,5 +1,7 @@
 package fr.kevin.prog;
 
+import java.awt.*;
+
 public class Triangle extends GeometricShape {
 
     protected Point[] points;
@@ -48,4 +50,13 @@ public class Triangle extends GeometricShape {
     public int perimeter() {
         return getL12() + getL13() + getL23();
     }
+
+    @Override
+    public void drawOn(Graphics g) {
+        g.drawLine(getFirstPoint().getX(), getFirstPoint().getY(), getSecondPoint().getX(), getSecondPoint().getY());
+        g.drawLine(getFirstPoint().getX(), getFirstPoint().getY(), getThirdPoint().getX(), getThirdPoint().getY());
+        g.drawLine(getSecondPoint().getX(), getSecondPoint().getY(), getThirdPoint().getX(), getThirdPoint().getY());
+    }
+
+
 }

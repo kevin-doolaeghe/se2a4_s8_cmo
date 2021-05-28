@@ -31,6 +31,8 @@ public class Main {
         SquareTest st = new SquareTest();
         st.aire();
         st.perimetre();
+
+        PaintApp app = new PaintApp();
     }
 
 }

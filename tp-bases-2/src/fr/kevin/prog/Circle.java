@@ -1,5 +1,7 @@
 package fr.kevin.prog;
 
+import java.awt.*;
+
 public class Circle extends GeometricShape {
 
     protected Point center;
@@ -39,5 +41,11 @@ public class Circle extends GeometricShape {
     public int perimeter() {
         return (int) (2 * Math.PI * radius);
     }
+
+    @Override
+    public void drawOn(Graphics g) {
+        g.drawOval(getCenter().getX(), getCenter().getY(), getRadius(), getRadius());
+    }
+
 
 }
