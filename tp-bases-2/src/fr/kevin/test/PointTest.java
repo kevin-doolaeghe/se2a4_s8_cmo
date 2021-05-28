@@ -30,6 +30,12 @@ public class PointTest {
     }
 
     @Test
+    public void distance() {
+        Point p2 = new Point(20, 20);
+        assertEquals(10, p.distance(p2));
+    }
+
+    @Test
     public void print() {
         assertEquals("<10@20>", p.print());
     }

@@ -1,8 +1,8 @@
 package fr.kevin.test;
 
 import fr.kevin.prog.Square;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
 

@@ -19,6 +19,12 @@ public class Point {
         return "<" + getX() + "@" + getY() + ">";
     }
 
+    public int distance(Point p) {
+        int dx = getX() - p.getX();
+        int dy = getY() - p.getY();
+        return (int) Math.sqrt(dx * dx + dy * dy);
+    }
+
     public int getX() { return x; }
 
     public int getY() { return y; }

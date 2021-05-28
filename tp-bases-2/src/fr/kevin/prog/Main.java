@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         PointTest pt = new PointTest();
         pt.creation();
+        pt.distance();
         pt.print();
 
         RectangleTest rt = new RectangleTest();
@@ -17,6 +18,8 @@ public class Main {
         rt.print();
 
         TriangleTest tt = new TriangleTest();
+        tt.creation();
+        tt.taille();
         tt.aire();
         tt.perimetre();
 

@@ -12,13 +12,40 @@ public class Triangle extends GeometricShape {
         points = new Point[]{new Point(x1, y1), new Point(x2, y2), new Point(x3, y3)};
     }
 
+    public Point getFirstPoint() {
+        return points[0];
+    }
+
+    public Point getSecondPoint() {
+        return points[1];
+    }
+
+    public Point getThirdPoint() {
+        return points[2];
+    }
+
+    public int getL12() {
+        return points[0].distance(points[1]);
+    }
+
+    public int getL13() {
+        return points[0].distance(points[2]);
+    }
+
+    public int getL23() {
+        return points[1].distance(points[2]);
+    }
+
     @Override
     public int area() {
-        return (int) 1;
+        int half_p = perimeter() / 2;
+        int h = (int) (2 / (double) getL12() * Math.sqrt(half_p * (half_p - getL12()) * (half_p - getL13())
+                * (half_p - getL23())));
+        return getL12() * h / 2;
     }
 
     @Override
     public int perimeter() {
-        return (int) 1;
+        return getL12() + getL13() + getL23();
     }
 }
