@@ -1,6 +1,6 @@
 package fr.kevin.prog;
 
-public class Rectangle {
+public class Rectangle extends GeometricShape {
 
     private Point origin;
     private Point corner;
