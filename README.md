@@ -153,13 +153,103 @@ public abstract class A {
 
 Pour dériver d'une classe abstraite, il faut utiliser le code ci-dessous :
 ```java
-public abstract class B extends A { 
+public class B extends A { 
     
     public void sayHello() {
         // ...
     };
     
 }
+```
+
+### Visibilité de type
+
+```java
+public class Vehicule {
+
+    public void avancer() {
+        // ...
+    };
+    
+}
+
+public class Voiture extends Vehicule {
+
+    public void rouler() {
+        // ...
+    };
+
+}
+```
+
+On peut instancier un objet `Voiture` dans une variable de type `Vehicule`.
+```java
+Vehicule v = new Voiture();
+v.avancer();
+```
+
+* La variable `v` n'a accès qu'aux propriétés de la classe `Vehicule`.
+* L'objet `v` n'a pas accès à la méthode `rouler()` sauf si elle a été déclarée abstraite au préalable.
+* Le lookup des méthodes appelées débute dans la classe instanciée (ici `Voiture`).
+
+Le mot clef `instanceof` permet de vérifier de type d'une variable :
+```java
+if (v instanceof Vehicule)
+    System.out.printl("Je suis un véhicule");
+```
+
+### Interfaces :
+Une interface permet de créer des sous-types sans créer de classe de base.  
+Elle définit des méthodes, des constantes.. à implémenter dans une classe.
+```java
+public interface A {
+    
+    default void a() {
+        // ...
+    }
+    
+}
+
+public interface B {
+    
+    default void b() {
+        // ...
+    }
+    
+}
+```
+
+L'implémentation d'interfaces dans une classe est effectuée de la façon suivante :
+```java
+public class C implements A, B {
+    
+    public void a() {
+        return A.super.a();
+    }
+    
+    public void b() {
+        return B.super.b();
+    }
+    
+    // ...
+    
+}
+```
+
+### Cast
+La classe `Voiture` hérite de la classe `Vehicule`.
+
+* `upcast` :
+```java
+Vehicule vehicule;
+Voiture voiture = new Voiture();
+vehicule = voiture; // Upcast
+```
+* `downcast` :
+```java
+Vehicule vehicule;
+Voiture voiture = new Voiture();
+voiture = (Voiture) vehicule; // Downcast
 ```
 
 ## Java Virtual Machine - JVM :
