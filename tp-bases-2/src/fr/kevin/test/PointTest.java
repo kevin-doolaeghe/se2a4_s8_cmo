@@ -1,6 +1,6 @@
 package fr.kevin.test;
 
-import fr.kevin.prog.Point;
+import fr.kevin.shape.Point;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 

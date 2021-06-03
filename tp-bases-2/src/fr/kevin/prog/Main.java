@@ -1,5 +1,6 @@
 package fr.kevin.prog;
 
+import fr.kevin.painter.PaintApp;
 import fr.kevin.test.*;
 
 public class Main {
@@ -16,6 +17,7 @@ public class Main {
         rt.aire();
         rt.perimetre();
         rt.print();
+        rt.dessin();
 
         TriangleTest tt = new TriangleTest();
         tt.creation();

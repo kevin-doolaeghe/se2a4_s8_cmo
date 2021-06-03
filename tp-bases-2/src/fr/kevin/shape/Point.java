@@ -1,4 +1,4 @@
-package fr.kevin.prog;
+package fr.kevin.shape;
 
 public class Point {
 

@@ -1,6 +1,7 @@
 package fr.kevin.test;
 
-import fr.kevin.prog.Rectangle;
+import fr.kevin.display.RectangleDrawer;
+import fr.kevin.shape.Rectangle;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -51,7 +52,11 @@ public class RectangleTest {
     public void print() {
         Rectangle r = new Rectangle(4, 2, 3, 5);
         assertEquals("Rectangle: (<4@2> , <3@5>)", r.print());
-        // System.out.println(r.print());
+    }
+
+    @Test
+    public void dessin() {
+        assert(r.createDrawer() instanceof RectangleDrawer);
     }
 
 }

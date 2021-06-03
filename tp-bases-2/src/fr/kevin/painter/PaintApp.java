@@ -1,9 +1,9 @@
-package fr.kevin.test;
+package fr.kevin.painter;
 
-import fr.kevin.prog.Circle;
-import fr.kevin.prog.GeometricShape;
-import fr.kevin.prog.Rectangle;
-import fr.kevin.prog.Triangle;
+import fr.kevin.shape.Circle;
+import fr.kevin.shape.GeometricShape;
+import fr.kevin.shape.Rectangle;
+import fr.kevin.shape.Triangle;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;

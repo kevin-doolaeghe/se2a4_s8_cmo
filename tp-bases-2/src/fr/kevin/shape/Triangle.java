@@ -1,4 +1,7 @@
-package fr.kevin.prog;
+package fr.kevin.shape;
+
+import fr.kevin.display.GeometricShapeDrawer;
+import fr.kevin.display.TriangleDrawer;
 
 import java.awt.*;
 
@@ -52,11 +55,10 @@ public class Triangle extends GeometricShape {
     }
 
     @Override
-    public void drawOn(Graphics g) {
-        g.drawLine(getFirstPoint().getX(), getFirstPoint().getY(), getSecondPoint().getX(), getSecondPoint().getY());
-        g.drawLine(getFirstPoint().getX(), getFirstPoint().getY(), getThirdPoint().getX(), getThirdPoint().getY());
-        g.drawLine(getSecondPoint().getX(), getSecondPoint().getY(), getThirdPoint().getX(), getThirdPoint().getY());
+    public GeometricShapeDrawer createDrawer() {
+        TriangleDrawer drawer = new TriangleDrawer();
+        drawer.setGs(this);
+        return drawer;
     }
-
 
 }

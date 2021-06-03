@@ -1,6 +1,6 @@
 package fr.kevin.test;
 
-import fr.kevin.prog.Square;
+import fr.kevin.shape.Square;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 

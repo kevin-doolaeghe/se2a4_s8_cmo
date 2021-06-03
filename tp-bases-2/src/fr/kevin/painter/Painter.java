@@ -1,6 +1,6 @@
-package fr.kevin.test;
+package fr.kevin.painter;
 
-import fr.kevin.prog.GeometricShape;
+import fr.kevin.shape.GeometricShape;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class Painter extends Panel {
         g.setColor(Color.BLUE);
 
         for (GeometricShape shape : shapes) {
-            shape.drawOn(g);
+            shape.createDrawer().drawOn(g);
         }
     }
 

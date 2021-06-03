@@ -1,6 +1,6 @@
 package fr.kevin.test;
 
-import fr.kevin.prog.Circle;
+import fr.kevin.shape.Circle;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 

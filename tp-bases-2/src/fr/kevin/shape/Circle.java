@@ -1,6 +1,7 @@
-package fr.kevin.prog;
+package fr.kevin.shape;
 
-import java.awt.*;
+import fr.kevin.display.CircleDrawer;
+import fr.kevin.display.GeometricShapeDrawer;
 
 public class Circle extends GeometricShape {
 
@@ -43,9 +44,9 @@ public class Circle extends GeometricShape {
     }
 
     @Override
-    public void drawOn(Graphics g) {
-        g.drawOval(getCenter().getX(), getCenter().getY(), getRadius(), getRadius());
+    public GeometricShapeDrawer createDrawer() {
+        CircleDrawer drawer = new CircleDrawer();
+        drawer.setGs(this);
+        return drawer;
     }
-
-
 }

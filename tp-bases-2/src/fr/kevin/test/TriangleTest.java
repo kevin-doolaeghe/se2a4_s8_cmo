@@ -1,6 +1,6 @@
 package fr.kevin.test;
 
-import fr.kevin.prog.Triangle;
+import fr.kevin.shape.Triangle;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 

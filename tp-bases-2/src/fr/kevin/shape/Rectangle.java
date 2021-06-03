@@ -1,6 +1,7 @@
-package fr.kevin.prog;
+package fr.kevin.shape;
 
-import java.awt.*;
+import fr.kevin.display.GeometricShapeDrawer;
+import fr.kevin.display.RectangleDrawer;
 
 public class Rectangle extends GeometricShape {
 
@@ -28,21 +29,6 @@ public class Rectangle extends GeometricShape {
         return Math.abs(y1-y2);
     }
 
-    @Override
-    public int area() {
-        return width() * height();
-    }
-
-    @Override
-    public int perimeter() {
-        return 2 * width() + 2 * height();
-    }
-
-    @Override
-    public void drawOn(Graphics g) {
-        g.drawRect(getOrigin().getX(), getOrigin().getY(), width(), height());
-    }
-
     public String print() {
         return "Rectangle: (" + getOrigin().print() + " , " + getCorner().print() + ")";
     }
@@ -54,4 +40,22 @@ public class Rectangle extends GeometricShape {
     public void setOrigin(Point origin) { this.origin = origin; }
 
     public void setCorner(Point corner) { this.corner = corner; }
+
+    @Override
+    public int area() {
+        return width() * height();
+    }
+
+    @Override
+    public int perimeter() {
+        return 2 * width() + 2 * height();
+    }
+
+    @Override
+    public GeometricShapeDrawer createDrawer() {
+        RectangleDrawer drawer = new RectangleDrawer();
+        drawer.setGs(this);
+        return drawer;
+    }
+
 }
