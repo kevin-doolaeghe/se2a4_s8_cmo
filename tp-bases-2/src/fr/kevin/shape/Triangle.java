@@ -3,8 +3,6 @@ package fr.kevin.shape;
 import fr.kevin.display.GeometricShapeDrawer;
 import fr.kevin.display.TriangleDrawer;
 
-import java.awt.*;
-
 public class Triangle extends GeometricShape {
 
     protected Point[] points;

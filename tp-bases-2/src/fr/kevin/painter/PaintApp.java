@@ -1,9 +1,7 @@
 package fr.kevin.painter;
 
-import fr.kevin.shape.Circle;
-import fr.kevin.shape.GeometricShape;
+import fr.kevin.shape.*;
 import fr.kevin.shape.Rectangle;
-import fr.kevin.shape.Triangle;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -19,11 +17,13 @@ public class PaintApp extends Frame {
         Rectangle r = new Rectangle(100, 100, 220, 180);
         Circle c = new Circle(400, 300, 130);
         Triangle t = new Triangle(30, 220, 300, 260, 100, 400);
+        Square s = new Square(300, 20, 100);
 
         shapes = new ArrayList<>();
         shapes.add(r);
         shapes.add(c);
         shapes.add(t);
+        shapes.add(s);
 
         painter = new Painter(shapes);
         this.add(painter);
