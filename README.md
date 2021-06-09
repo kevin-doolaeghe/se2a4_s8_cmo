@@ -1,12 +1,10 @@
 # SE2A4 | Semestre n°8 - Conception & modélisation objet
 
 ## Auteur
-
-Kevin Doolaeghe
+### Kevin Doolaeghe
 
 ## Auteur du TP
-
-Steve Coustiou
+### Steve Coustiou
 
 ## Résumé de cours
 
@@ -27,6 +25,8 @@ Un objet peut être instancié grâce à l'opérateur `new` :
 Rectangle rectangle = new Rectangle(10, 20);
 ```
 
+- - - - -
+
 ### Message :
 Un objet collabore avec d'autres entités au travers de messages.  
 Un message est un échange entre deux objets.  
@@ -35,6 +35,8 @@ Le lookup de la méthode appelée s'effectue depuis la classe actuelle vers les 
 Un objet appelant une méthode avec :
 * `this` commence le lookup depuis sa classe.
 * `super` commence le lookup depuis sa super-classe.
+
+- - - - -
 
 ### Classe :
 La classe définit la structure de l'objet (variables et méthodes).  
@@ -67,6 +69,8 @@ class Rectangle {
 }
 ```
 
+- - - - -
+
 ### Encapsulation :
 Définition des accès aux données (public, private, protected).  
 L'accès par défaut est défini dans le cas où aucun type d'accès n'est spécifié.  
@@ -94,8 +98,12 @@ class Rectangle {
 }
 ```
 
+- - - - -
+
 ### Polymorphisme :
 Des objets de nature différente peuvent répondre aux mêmes comportements.
+
+- - - - -
 
 ### Héritage :
 L'héritage permet à une classe de récupérer toutes les caractéristiques d'une autre classe.  
@@ -123,6 +131,8 @@ class Square extends Rectangle {
 }
 ```
 
+- - - - -
+
 ### Redéfinition :
 Une méthode peut être redéfinie et avoir des paramètres différents :
 ```java
@@ -140,6 +150,8 @@ class Rectangle {
     // ...
 }
 ```
+
+- - - - -
 
 ### Classes abstraites :
 Une classe abstraite défini les comportements que devront implémenter les classes qui dériveront de cette classe :
@@ -161,6 +173,8 @@ public class B extends A {
     
 }
 ```
+
+- - - - -
 
 ### Visibilité de type
 
@@ -198,9 +212,179 @@ if (v instanceof Vehicule)
     System.out.printl("Je suis un véhicule");
 ```
 
-### Interfaces :
-Une interface permet de créer des sous-types sans créer de classe de base.  
-Elle définit des méthodes, des constantes.. à implémenter dans une classe.
+- - - - -
+
+### Cast
+La classe `Voiture` hérite de la classe `Vehicule`.
+
+* `upcast` :
+```java
+Vehicule vehicule;
+Voiture voiture = new Voiture();
+vehicule = voiture; // Upcast
+```
+* `downcast` :
+```java
+Vehicule vehicule;
+Voiture voiture = new Voiture();
+voiture = (Voiture) vehicule; // Downcast
+```
+
+- - - - -
+
+### Exceptions
+Une exception est un évènement non prévu qui survient.  
+Il y a différents types d'exceptions :
+* `RuntimeException`
+  * `NullPointerException`
+  * `ArrayIndexOutOfBoundsException`
+* `IOException`
+* ...
+
+Une exception peut être traitée à l'aide d'un *Exception Handler* :
+```java
+try {
+    // ...
+} catch(IOException e) {
+    e.printStackTrace();
+} catch(Exception e) {
+    // ...
+} finally {
+    // ...
+}
+```
+
+* La classe `Exception` est la classe commune à toutes les exceptions.
+* La méthode `printStackTrace()` affiche la trace de l'exception sur la console.
+* Le bloc `finally` permet d'exécuter du code pour nettoyer des variables et garantir un certain fonctionnement suite à une exception.
+* Une exception se propage jusqu'au premier bloc capable de la capturer (bloc `try/catch`).
+
+Une classe de gestion des exceptions personnalisée peut être créée :
+```java
+public class CustomException extends Exception {
+    
+    // ...
+  
+}
+```
+
+Les classes `Exception` et `Error` héritent de la classe `Throwable`.  
+Une méthode peut renvoyer une exception en cas d'erreur à l'aide de la classe `Throwable` :
+```java
+public class Voiture {
+
+    void rouler() throws CustomException {
+        if (/* ... */) throw new CustomException();
+        // ...
+    }
+    
+}
+```
+
+```java
+public class Main {
+    
+    public static void main(String[] args) {
+        Voiture v = new Voiture();
+        try {
+            v.rouler();
+        } catch (CustomException e) {
+            // ...
+        }
+    }
+    
+}
+```
+
+Une exception capturée peut être propagée :
+```java
+try {
+    
+} catch (Type1Exception e) {
+    throw new Type2Exception();
+}
+```
+
+L'*Exception Wrapping* permet de récupérer les informations de l'exception d'origine par la redéfinition des constructeurs dans la classe de l'exception personnalisée.
+```java
+public Type2Exception(String message) { super(message); }
+```
+
+```java
+try {
+    
+} catch (Type1Exception e) {
+    throw new Type2Exception("Une erreur de type 1 est survenue.");
+}
+```
+
+- - - - -
+
+### Collections
+
+Les collections sont des **objets** permettent de stocker des données sous forme de tableaux ou de dictionnaires.
+Les **classes/interfaces** suivantes permettent la manipulation de ces collections :
+* `List`
+  * `ArrayList`
+  * `LinkedList`
+* `Set`
+  * `HashSet`
+  * `TreeSet`
+* `Map`
+  * `HashMap`
+  * `TreeMap`
+
+> `Collection`, `List`, `Set` et `Map` sont des **interfaces**.
+
+> `ArrayList`, `TreeSet`, `HashMap`,.. sont des **classes**.
+
+Les collections disposent de nombreuses méthodes :
+* `get()` : récupérer des éléments sous forme clé/valeur
+* `put()` : ajouter des éléments sous forme clé/valeur
+* `sort()` : trier la collection
+* `indexOf()` : récupérer un élément pour un index donné
+* `set()` : remplacer une valeur par une autre
+* `size()` : récupérer la taille de la collection
+* ...
+
+Certains types de collections proposent des avantages.  
+Par exemple, une `TreeMap` permet une complexité en `log2`.
+
+L'interface `Iterator<E>` permet de réaliser des boucles sur des collections à l'aide des méthodes `hasNext()` et `next()`.
+
+- - - - -
+
+### Interfaces
+* Une interface permet de créer des sous-types sans créer de classe de base.
+* Les interfaces définissent une liste de méthodes abstraites sans variables d'instance.
+* Elle définit des méthodes, des constantes.. à implémenter dans une classe.
+
+Une interface peut être définie comme ci-dessous :
+```java
+public interface List<E> {
+    
+    public void get();
+    public void put();
+    public void sort();
+    
+}
+```
+
+Une interface peut hériter d'une autre interface à l'aide du mot clef `extends`.
+
+Si une classe implémente une interface, elle doit implémenter ses méthodes.  
+Une interface peut être implémentée de la façon suivante :
+```java
+public class ArrayList<E>
+        extends AbstractList
+        implements List<E>, Cloneable, Serializable {
+    
+    // ...
+    
+}
+```
+
+Voici un autre exemple d'implémentation d'interface :
 ```java
 public interface A {
     
@@ -219,7 +403,6 @@ public interface B {
 }
 ```
 
-L'implémentation d'interfaces dans une classe est effectuée de la façon suivante :
 ```java
 public class C implements A, B {
     
@@ -236,27 +419,18 @@ public class C implements A, B {
 }
 ```
 
-### Cast
-La classe `Voiture` hérite de la classe `Vehicule`.
+Les interfaces définissent ce qui est attendu et permettent de laisser le système évoluer.  
+Deux interfaces différentes avec le même contenu ne sont pas compatibles.
 
-* `upcast` :
-```java
-Vehicule vehicule;
-Voiture voiture = new Voiture();
-vehicule = voiture; // Upcast
-```
-* `downcast` :
-```java
-Vehicule vehicule;
-Voiture voiture = new Voiture();
-voiture = (Voiture) vehicule; // Downcast
-```
+- - - - -
 
 ## Java Virtual Machine - JVM :
 Le code Java est compilé en bytecode.
 La JVM est une infrastructure d'exécution des programmes Java.
 
 La JVM fournit des abstractions pour effectuer l'accès au fichiers, aux E/S, au réseau..  
+
+- - - - -
 
 ## Spécificités Java
 
@@ -362,6 +536,8 @@ do {
     // ...
 } while (i != 12);
 ```
+
+- - - - -
 
 ## Test Driven Development - TDD :
 Il s'agit d'une technique de développement consistant à développer les fonctionnalités à partir des tests à effectuer.
