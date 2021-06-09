@@ -23,10 +23,6 @@ public class PointTest {
     public void creation() {
         assertEquals(10, p.getX());
         assertEquals(20, p.getY());
-        /*
-        assert p.getX() == 10 : "p.x est égal à 10";
-        assert p.getY() == 20 : "p.y est égal à 20";
-        */
     }
 
     @Test

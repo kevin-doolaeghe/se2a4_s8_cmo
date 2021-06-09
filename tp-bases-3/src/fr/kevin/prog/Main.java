@@ -1,40 +1,44 @@
 package fr.kevin.prog;
 
+import fr.kevin.exception.InvalidIntFormatException;
+import fr.kevin.exception.WrongShapeNameException;
 import fr.kevin.painter.PaintApp;
-import fr.kevin.test.*;
+import fr.kevin.saisie.CommandLineInterface;
+import fr.kevin.saisie.GeoFormCreator;
+import fr.kevin.shape.GeometricShape;
+
+import java.util.ArrayList;
 
 public class Main {
 
+    public void promptShapesForDisplay() {
+        CommandLineInterface cli = new CommandLineInterface();
+
+        GeoFormCreator creator = new GeoFormCreator();
+        ArrayList<GeometricShape> shapes = new ArrayList<>();
+
+        try {
+            System.out.println("Enter the number of shapes to draw:");
+            int nb = cli.readInteger();
+            for (int i = 0; i < nb; i++) {
+                try {
+                    System.out.println("Enter the name of the shape you want to print:");
+                    String name = new CommandLineInterface().scanCommand();
+                    GeometricShape shape = creator.createShape(name);
+                    shapes.add(shape);
+                } catch (WrongShapeNameException | InvalidIntFormatException e) {
+                    e.printStackTrace();
+                }
+            }
+            new PaintApp(shapes);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            System.out.println("Cannot read a valid number, exiting program");
+        }
+    }
+
     public static void main(String[] args) {
-        PointTest pt = new PointTest();
-        pt.creation();
-        pt.distance();
-        pt.print();
-
-        RectangleTest rt = new RectangleTest();
-        rt.creation();
-        rt.height();
-        rt.aire();
-        rt.perimetre();
-        rt.print();
-        rt.dessin();
-
-        TriangleTest tt = new TriangleTest();
-        tt.creation();
-        tt.taille();
-        tt.aire();
-        tt.perimetre();
-
-        CircleTest ct = new CircleTest();
-        ct.creation();
-        ct.aire();
-        ct.perimetre();
-
-        SquareTest st = new SquareTest();
-        st.aire();
-        st.perimetre();
-
-        PaintApp app = new PaintApp();
+        new Main().promptShapesForDisplay();
     }
 
 }
