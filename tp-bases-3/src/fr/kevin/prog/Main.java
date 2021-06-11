@@ -6,10 +6,16 @@ import fr.kevin.painter.PaintApp;
 import fr.kevin.saisie.CommandLineInterface;
 import fr.kevin.saisie.GeoFormCreator;
 import fr.kevin.shape.GeometricShape;
+import fr.kevin.test.BooleanTest;
 
 import java.util.ArrayList;
 
 public class Main {
+
+    public void testLogic() {
+        BooleanTest booleanTest = new BooleanTest();
+        booleanTest.run();
+    }
 
     public void promptShapesForDisplay() {
         CommandLineInterface cli = new CommandLineInterface();
@@ -39,6 +45,7 @@ public class Main {
 
     public static void main(String[] args) {
         new Main().promptShapesForDisplay();
+        new Main().testLogic();
     }
 
 }
