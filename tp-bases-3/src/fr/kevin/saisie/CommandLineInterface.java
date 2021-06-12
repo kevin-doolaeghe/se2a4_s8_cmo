@@ -14,8 +14,4 @@ public class CommandLineInterface {
         return scanner.nextLine();
     }
 
-    public int readInteger() throws NumberFormatException {
-        return Integer.parseInt(scanner.nextLine());
-    }
-
 }
